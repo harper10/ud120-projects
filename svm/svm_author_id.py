@@ -26,6 +26,20 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
+from sklearn.svm import SVC
+from collections import Counter
+
+clf = SVC(kernel="rbf",C=10000.0)
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
+t0 = time()
+clf.fit(features_train, labels_train)
+print("training time: {} s".format(round(time()-t0, 3)))
+t1 = time()
+pred = clf.predict(features_test)
+print("predicting time: {} s".format(round(time()-t1, 3)))
+print(clf.score(features_test, labels_test))
+print(Counter(pred))
 
 #########################################################
 
