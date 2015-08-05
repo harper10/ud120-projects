@@ -31,7 +31,7 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 from sklearn.svm import SVC
-clf = SVC(kernel="linear", gamma=1.0)
+clf = SVC(kernel="rbf", C=1, gamma=1.0)
 clf.fit(features_train, labels_train)
 
 
